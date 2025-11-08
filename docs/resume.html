@@ -29,28 +29,25 @@
     align-items: center;
     border-bottom: 2px solid #007acc;
     padding-bottom: 15px;
+    justify-content: space-between;
   }
-  .header {
-  justify-content: space-between;
-}
 
-.header-links {
-  display: flex;
-  gap: 18px;
-  margin-left: auto;
-}
+  .header-links {
+    display: flex;
+    gap: 18px;
+    margin-left: auto;
+  }
 
-.header-links svg {
-  width: 26px;
-  height: 26px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
+  .header-links svg {
+    width: 26px;
+    height: 26px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
 
-.header-links svg:hover {
-  transform: scale(1.15);
-  opacity: 0.8;
-}
-
+  .header-links svg:hover {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
 
   .profile-image {
     width: 130px;
@@ -83,25 +80,24 @@
 
   /* Layout */
   .content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-top: 30px;
-  position: relative;
-}
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+    position: relative;
+  }
 
-/* vertical divider */
-.content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background-color: #e0e0e0; /* light gray vertical line */
-  transform: translateX(-50%);
-}
-
+  /* vertical divider */
+  .content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background-color: #e0e0e0; /* light gray vertical line */
+    transform: translateX(-50%);
+  }
 
   .section {
     margin-bottom: 25px;
@@ -130,22 +126,103 @@
 
   /* Soft skills line */
   .skills-line {
-  display: flex;
-  flex-direction: column; /* vertical layout */
-  gap: 10px;              /* space between each skill */
-  align-items: flex-start; /* align items to the left */
-}
+    display: flex;
+    flex-direction: column; /* vertical layout */
+    gap: 10px;              /* space between each skill */
+    align-items: flex-start; /* align items to the left */
+  }
 
-.skills-line span {
-  background: #e8f3ff;
-  color: #007acc;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  width: fit-content; /* keeps bubble tight around text */
-}
+  .skills-line span {
+    background: #e8f3ff;
+    color: #007acc;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    width: fit-content; /* keeps bubble tight around text */
+  }
 
+  /* Responsive Styles for Mobile */
+  @media (max-width: 768px) {
+    .container {
+      margin: 20px 15px;
+      padding: 25px 20px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: none;
+    }
 
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-bottom: 1px solid #007acc;
+      padding-bottom: 20px;
+    }
+
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      margin-right: 0;
+      margin-bottom: 15px;
+      border-width: 2px;
+    }
+
+    .header-info h1 {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+    }
+
+    .header-info p {
+      font-size: 0.9em;
+      margin: 2px 0;
+    }
+
+    .header-links {
+      margin-left: 0;
+      margin-top: 10px;
+      gap: 15px;
+    }
+
+    .header-links svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .content {
+      display: block;
+      margin-top: 20px;
+      position: static;
+    }
+
+    .content::before {
+      display: none;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin-left: 15px;
+    }
+
+    .skills-line {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .skills-line span {
+      font-size: 0.85em;
+      padding: 5px 12px;
+    }
+  }
 </style>
 </head>
 <body>
