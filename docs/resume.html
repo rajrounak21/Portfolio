@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rounak Raj | AI & ML Fresher Resume</title>
 <style>
   body {
@@ -95,7 +95,7 @@
     bottom: 0;
     left: 50%;
     width: 1px;
-    background-color: #e0e0e0; /* light gray vertical line */
+    background-color: #e0e0e0;
     transform: translateX(-50%);
   }
 
@@ -127,9 +127,9 @@
   /* Soft skills line */
   .skills-line {
     display: flex;
-    flex-direction: column; /* vertical layout */
-    gap: 10px;              /* space between each skill */
-    align-items: flex-start; /* align items to the left */
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
   }
 
   .skills-line span {
@@ -138,59 +138,65 @@
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.9em;
-    width: fit-content; /* keeps bubble tight around text */
+    width: fit-content;
   }
 
-  /* Responsive Styles for Mobile */
+  /* Responsive Styles */
   @media (max-width: 768px) {
     .container {
-      margin: 20px 15px;
-      padding: 25px 20px;
+      padding: 30px 20px;
+      margin: 20px 10px;
       max-width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: none;
     }
 
     .header {
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
       text-align: center;
-      border-bottom: 1px solid #007acc;
+      gap: 15px;
       padding-bottom: 20px;
     }
 
     .profile-image {
-      width: 100px;
-      height: 100px;
-      margin-right: 0;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      border-width: 2.5px;
       margin-bottom: 15px;
-      border-width: 2px;
+      margin-right: 0;
+    }
+
+    .header-info {
+      flex: 1 1 100%;
     }
 
     .header-info h1 {
-      font-size: 1.5em;
-      margin-bottom: 5px;
+      font-size: 1.7em;
     }
 
     .header-info p {
-      font-size: 0.9em;
-      margin: 2px 0;
+      font-size: 1em;
+      margin: 3px 0;
     }
 
     .header-links {
       margin-left: 0;
-      margin-top: 10px;
+      justify-content: center;
       gap: 15px;
+      width: 100%;
     }
 
     .header-links svg {
-      width: 22px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
     }
 
     .content {
-      display: block;
-      margin-top: 20px;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 25px;
       position: static;
     }
 
@@ -198,73 +204,70 @@
       display: none;
     }
 
-    .section {
-      margin-bottom: 20px;
-    }
-
     h2 {
-      font-size: 1.1em;
+      font-size: 1.15em;
       margin-bottom: 8px;
     }
 
     ul {
-      margin-left: 15px;
+      margin-left: 20px;
+      font-size: 1em;
     }
 
     .skills-line {
       flex-direction: row;
       flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
+      gap: 10px;
+      justify-content: flex-start;
     }
 
     .skills-line span {
-      font-size: 0.85em;
-      padding: 5px 12px;
+      font-size: 0.95em;
+      padding: 7px 15px;
     }
   }
 </style>
 </head>
 <body>
   <div class="container">
-
     <div class="header">
-  <img src="r_1.jpg" alt="Profile Image" class="profile-image">
+      <img src="r_1.jpg" alt="Profile Image" class="profile-image" />
 
-  <div class="header-info">
-    <h1>Rounak Raj</h1>
-    <p><b>Email:</b> <a href="mailto:rajrounak366@gmail.com">rajrounak366@gmail.com</a></p>
-    <p><b>Phone:</b> +91 9572073615</p>
-    <p><b>Location:</b> Patna, India</p>
-  </div>
+      <div class="header-info">
+        <h1>Rounak Raj</h1>
+        <p><b>Email:</b> <a href="mailto:rajrounak366@gmail.com">rajrounak366@gmail.com</a></p>
+        <p><b>Phone:</b> +91 9572073615</p>
+        <p><b>Location:</b> Patna, India</p>
+      </div>
 
-  <div class="header-links">
-    <a href="https://www.linkedin.com/in/rounak-raj-761400267/" target="_blank" title="LinkedIn">
-      <!-- LinkedIn SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#007acc" d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zm-9 19H7v-7h3v7zm-1.5-8.091a1.749 1.749 0 1 1 0-3.498 1.749 1.749 0 0 1 0 3.498zm11.5 8.091h-3v-3.604c0-.859-.016-1.966-1.197-1.966-1.199 0-1.383.937-1.383 1.906V19h-3v-7h2.882v.955h.041c.403-.764 1.389-1.568 2.859-1.568 3.057 0 3.62 2.012 3.62 4.633V19z"/></svg>
-    </a>
+      <div class="header-links">
+        <a href="https://www.linkedin.com/in/rounak-raj-761400267/" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="#007acc" d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zm-9 19H7v-7h3v7zm-1.5-8.091a1.749 1.749 0 1 1 0-3.498 1.749 1.749 0 0 1 0 3.498zm11.5 8.091h-3v-3.604c0-.859-.016-1.966-1.197-1.966-1.199 0-1.383.937-1.383 1.906V19h-3v-7h2.882v.955h.041c.403-.764 1.389-1.568 2.859-1.568 3.057 0 3.62 2.012 3.62 4.633V19z"/>
+          </svg>
+        </a>
 
-    <a href="https://github.com/rajrounak21" target="_blank" title="GitHub">
-      <!-- GitHub SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#007acc" d="M12 .5C5.648.5.5 5.648.5 12.001c0 5.099 3.292 9.421 7.865 10.953.575.106.785-.25.785-.556 0-.274-.011-1.174-.017-2.131-3.2.696-3.878-1.543-3.878-1.543-.523-1.331-1.277-1.687-1.277-1.687-1.044-.714.08-.7.08-.7 1.155.082 1.763 1.186 1.763 1.186 1.027 1.761 2.695 1.252 3.351.958.104-.745.402-1.253.732-1.542-2.554-.291-5.236-1.277-5.236-5.682 0-1.255.45-2.281 1.186-3.086-.119-.292-.515-1.466.113-3.06 0 0 .967-.31 3.17 1.179a11.016 11.016 0 0 1 2.886-.389c.979.004 1.966.133 2.888.389 2.203-1.49 3.168-1.179 3.168-1.179.63 1.594.234 2.768.115 3.06.738.805 1.185 1.831 1.185 3.086 0 4.418-2.686 5.387-5.247 5.673.414.357.783 1.066.783 2.15 0 1.554-.014 2.806-.014 3.189 0 .309.207.67.791.556C20.713 21.422 24 17.1 24 12.001 24 5.648 18.853.5 12 .5z"/></svg>
-    </a>
+        <a href="https://github.com/rajrounak21" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="#007acc" d="M12 .5C5.648.5.5 5.648.5 12.001c0 5.099 3.292 9.421 7.865 10.953.575.106.785-.25.785-.556 0-.274-.011-1.174-.017-2.131-3.2.696-3.878-1.543-3.878-1.543-.523-1.331-1.277-1.687-1.277-1.687-1.044-.714.08-.7.08-.7 1.155.082 1.763 1.186 1.763 1.186 1.027 1.761 2.695 1.252 3.351.958.104-.745.402-1.253.732-1.542-2.554-.291-5.236-1.277-5.236-5.682 0-1.255.45-2.281 1.186-3.086-.119-.292-.515-1.466.113-3.06 0 0 .967-.31 3.17 1.179a11.016 11.016 0 0 1 2.886-.389c.979.004 1.966.133 2.888.389 2.203-1.49 3.168-1.179 3.168-1.179.63 1.594.234 2.768.115 3.06.738.805 1.185 1.831 1.185 3.086 0 4.418-2.686 5.387-5.247 5.673.414.357.783 1.066.783 2.15 0 1.554-.014 2.806-.014 3.189 0 .309.207.67.791.556C20.713 21.422 24 17.1 24 12.001 24 5.648 18.853.5 12 .5z"/>
+          </svg>
+        </a>
 
-    <a href="https://rajrounak21.github.io/Portfolio/" target="_blank" title="Portfolio">
-      <!-- Website SVG -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path fill="#007acc" d="M20 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM4 5h16v3H4V5zm0 5h16v9H4v-9zM6 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm3 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-  </svg>    </a>
+        <a href="https://rajrounak21.github.io/Portfolio/" target="_blank" title="Portfolio">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="#007acc" d="M20 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM4 5h16v3H4V5zm0 5h16v9H4v-9zM6 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm3 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+          </svg>
+        </a>
 
-    <a href="mailto:rajrounak366@gmail.com" title="Email">
-      <!-- Email SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#007acc" d="M20 4H4a2 2 0 0 0-2 2v12c0 1.104.896 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.511l-8 5.333-8-5.333V6h16zM4 18V9.489l8 5.333 8-5.333V18H4z"/></svg>
-    </a>
-  </div>
-</div>
-
+        <a href="mailto:rajrounak366@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="#007acc" d="M20 4H4a2 2 0 0 0-2 2v12c0 1.104.896 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.511l-8 5.333-8-5.333V6h16zM4 18V9.489l8 5.333 8-5.333V18H4z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
 
     <div class="content">
-
       <!-- Left Column -->
       <div>
         <div class="section">
@@ -274,11 +277,11 @@
 
         <div class="section">
           <h2>Education</h2>
-          <p><b>Diploma in Artificial Intelligence and Machine Learning</b><br>
-          Government Polytechnic Barh (2022 - 2025)<br>
+          <p><b>Diploma in Artificial Intelligence and Machine Learning</b><br />
+          Government Polytechnic Barh (2022 - 2025)<br />
           <i>CGPA: 8.77 / 10</i></p>
-          <p><b>Secondary (X), CBSE</b><br>
-          St. Johns Academy (2022)<br>
+          <p><b>Secondary (X), CBSE</b><br />
+          St. Johns Academy (2022)<br />
           <i>CGPA: 8.60 / 10</i></p>
         </div>
 
@@ -333,12 +336,11 @@
           </ul>
 
           <p><b>Sikhsha Sathi</b> — <a href="https://rajrounak365-lgtm.github.io/Sikhsha-sathi/" target="_blank">Live Demo</a></p>
-<ul>
-  <li>Developed a complete SaaS-based institute management platform.</li>
-  <li>Includes student management, payment tracking, and analytics dashboard.</li>
-  <li>Built with FastAPI, HTMl,CSS, and MongoDB for scalability and performance.</li>
-</ul>
-
+          <ul>
+            <li>Developed a complete SaaS-based institute management platform.</li>
+            <li>Includes student management, payment tracking, and analytics dashboard.</li>
+            <li>Built with FastAPI, HTML, CSS, and MongoDB for scalability and performance.</li>
+          </ul>
         </div>
 
         <div class="section">
@@ -347,7 +349,6 @@
           <p><b>Languages:</b> English, Hindi</p>
         </div>
       </div>
-
     </div>
   </div>
 </body>
