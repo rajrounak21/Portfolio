@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,8 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         body {
@@ -23,6 +26,8 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
 
         .container {
@@ -56,6 +61,7 @@
         .nav-logo h2 {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
         }
@@ -114,6 +120,7 @@
             align-items: center;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding-top: 70px;
+            overflow: hidden;
         }
 
         .hero-container {
@@ -140,6 +147,7 @@
         .highlight {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -244,12 +252,19 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateX(-50%) translateY(0);
             }
+
             40% {
                 transform: translateX(-50%) translateY(-10px);
             }
+
             60% {
                 transform: translateX(-50%) translateY(-5px);
             }
@@ -324,6 +339,7 @@
             font-size: 2.5rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -788,96 +804,136 @@
             .hamburger {
                 display: flex;
             }
-            
+
             .nav-menu {
                 position: fixed;
-                left: -100%;
+                left: 0;
                 top: 70px;
+                transform: translateX(-100%);
                 flex-direction: column;
-                background-color: white;
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(15px);
                 width: 100%;
                 text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+                padding: 2.5rem 0;
                 gap: 0;
             }
-            
+
             .nav-menu.active {
-                left: 0;
+                transform: translateX(0);
             }
-            
+
             .nav-item {
-                margin: 1rem 0;
+                margin: 1.5rem 0;
             }
-            
+
+            .nav-link {
+                font-size: 1.25rem;
+                color: #111;
+            }
+
+            .nav-logo h2 {
+                font-size: 1.4rem;
+            }
+
+            .hamburger.active .bar {
+                background: #667eea;
+            }
+
             .hamburger.active .bar:nth-child(2) {
                 opacity: 0;
             }
-            
+
             .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
+                transform: translateY(9px) rotate(45deg);
             }
-            
+
             .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
+                transform: translateY(-9px) rotate(-45deg);
             }
-            
+
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
                 text-align: center;
             }
-            
+
             .hero-title {
                 font-size: 2.5rem;
+                margin-bottom: 1.5rem;
             }
-            
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
             .profile-img {
                 width: 250px;
                 height: 250px;
             }
-            
+
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
-            .about-stats {
-                flex-direction: row;
-                justify-content: center;
-                gap: 1rem;
+
+            .about-text {
+                font-size: 1rem;
+                line-height: 1.7;
+                text-align: left;
             }
-            
+
+            .about-text p {
+                margin-bottom: 1.2rem;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+            }
+
+            .stat-item {
+                padding: 1.5rem;
+                width: 100%;
+            }
+
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .timeline {
                 padding-left: 1rem;
             }
-            
+
             .timeline-item {
                 padding-left: 2rem;
             }
-            
+
             .timeline-dot {
                 left: -20px;
             }
-            
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .skills-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .education-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             /* Mobile responsive for GitHub showcase */
             .github-showcase {
                 flex-direction: column;
@@ -909,25 +965,30 @@
             .hero-title {
                 font-size: 2rem;
             }
-            
-            .section-title {
-                font-size: 2rem;
+
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
-            
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 3rem;
+            }
+
             .container {
                 padding: 0 15px;
             }
-            
+
             .profile-img {
                 width: 200px;
                 height: 200px;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .btn {
                 width: 100%;
                 max-width: 250px;
@@ -976,26 +1037,50 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) translateX(10px) rotate(90deg); }
-            50% { transform: translateY(-10px) translateX(-10px) rotate(180deg); }
-            75% { transform: translateY(-30px) translateX(5px) rotate(270deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-20px) translateX(10px) rotate(90deg);
+            }
+
+            50% {
+                transform: translateY(-10px) translateX(-10px) rotate(180deg);
+            }
+
+            75% {
+                transform: translateY(-30px) translateX(5px) rotate(270deg);
+            }
         }
-        
+
         .nav-link.active {
             color: #667eea !important;
         }
-        
+
         .nav-link.active::after {
             width: 100% !important;
         }
+
+        /* Prevent body scroll when menu is active */
+        body.no-scroll {
+            overflow: hidden;
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -1041,14 +1126,14 @@
                     </h1>
                     <p class="hero-subtitle">AI/ML Engineer</p>
                     <p class="hero-description">
-                        Passionate about solving real-world problems through AI-driven applications, 
+                        Passionate about solving real-world problems through AI-driven applications,
                         machine learning models, and scalable data systems.
                     </p>
                     <div class="hero-buttons">
-    <a href="#projects" class="btn btn-primary">View Projects</a>
-    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-    <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume (PDF)</a>
-</div>
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume (PDF)</a>
+                    </div>
                 </div>
                 <div class="hero-image">
                     <img src="profile-image.jpg" alt="Rounak Raj" class="profile-img">
@@ -1067,17 +1152,17 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I am Rounak Raj, an aspiring AI/ML Engineer with a strong foundation in Machine Learning, 
-                        Deep Learning, and AI-driven application development. I love solving real-world problems by 
-                        integrating data-driven models with scalable systems using tools like FastAPI, Streamlit, 
+                        I am Rounak Raj, an aspiring AI/ML Engineer with a strong foundation in Machine Learning,
+                        Deep Learning, and AI-driven application development. I love solving real-world problems by
+                        integrating data-driven models with scalable systems using tools like FastAPI, Streamlit,
                         LangChain, and cloud platforms.
                     </p>
                     <p>
-                        With a Diploma in Artificial Intelligence & Machine Learning (CGPA 8.77), I have hands-on 
+                        With a Diploma in Artificial Intelligence & Machine Learning (CGPA 8.77), I have hands-on
                         project experience in building AI chatbots, financial assistants, and ML-powered dashboards.
                     </p>
                     <p>
-                        I am passionate about exploring Generative AI, ML deployment, and scalable data systems, 
+                        I am passionate about exploring Generative AI, ML deployment, and scalable data systems,
                         while constantly improving my problem-solving and teamwork skills.
                     </p>
                 </div>
@@ -1114,7 +1199,7 @@
                         <span class="skill-tag">Power BI</span>
                     </div>
                 </div>
-                 <div class="skill-category">
+                <div class="skill-category">
                     <h3>AI Automation</h3>
                     <div class="skills-list">
                         <span class="skill-tag">Agentic AI</span>
@@ -1143,8 +1228,8 @@
                         <span class="skill-tag">CrewAI</span>
                         <span class="skill-tag">Agno</span>
                         <span class="skill-tag">Langgraph</span>
-                        <span class="skill-tag">ADK(Agent Development kit)</span>
                         <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">ADK(Agent Development kit)</span>
                         <span class="skill-tag">Cursor (GenAI)</span>
                         <span class="skill-tag">MLflow</span>
                     </div>
@@ -1159,7 +1244,7 @@
                         <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">Apache Kafka</span>
                         <span class="skill-tag">Redis</span>
-        
+
                     </div>
                 </div>
             </div>
@@ -1175,23 +1260,28 @@
                     <div class="project-header">
                         <h3>AI Lead Intent Scoring Dashboard</h3>
                         <div class="project-links">
-                            <a href="https://rajrounak21.github.io/AI-Lead-Intent-Scoring-Dashboard/" target="_blank" class="project-link">
+                            <a href="https://rajrounak21.github.io/AI-Lead-Intent-Scoring-Dashboard/" target="_blank"
+                                class="project-link">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <a href="https://github.com/rajrounak21/AI-Lead-Intent-Scoring-Dashboard" target="_blank" class="project-link">
+                            <a href="https://github.com/rajrounak21/AI-Lead-Intent-Scoring-Dashboard" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        Built an AI-powered Lead Scoring Dashboard with ML model + LLM-based reranker. 
-                        Frontend hosted on GitHub Pages, backend deployed on Render. Trained a Gradient 
+                        Built an AI-powered Lead Scoring Dashboard with ML model + LLM-based reranker.
+                        Frontend hosted on GitHub Pages, backend deployed on Render. Trained a Gradient
                         Boosting Classifier on structured + text data, with comment intent reranking.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Machine Learning</span>
                         <span class="tech-tag">LLM</span>
-                        <span class="tech-tag">Dashboard</span>
+                        <span class="tech-tag">Gradient Boosting</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Deployments</span>
+                        <span class="tech-tag">LLM-Reranker</span>
                     </div>
                 </div>
                 <div class="project-card">
@@ -1201,80 +1291,82 @@
                             <a href="https://sikhsha-sathi.rounakraj.online/" target="_blank" class="project-link">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                           
+
                         </div>
                     </div>
                     <p class="project-description">
-                 Developed a complete SaaS-based institute management platform.
-                 
-                 Includes student management, payment tracking, and analytics dashboard.
-                 
-                  Built with FastAPI, HTMl,CSS, and MongoDB for scalability and performance.
+                        Developed a complete SaaS-based institute management platform.
+
+                        Includes student management, payment tracking, and analytics dashboard.
+
+                        Built with FastAPI, HTMl,CSS, and MongoDB for scalability and performance.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">FastAPI</span>
                         <span class="tech-tag">Database</span>
-                        <span class="tech-tag">AI</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Dashboard</span>
+                        <span class="tech-tag">Edtech</span>
+                        <span class="tech-tag">Management</span>
+                        <span class="tech-tag">Automation</span>
                     </div>
                 </div>
                 <div class="project-card">
-    <div class="project-header">
-        <h3>AI Automation Code Writer (Lovable Clone)</h3>
-        <div class="project-links">
-            <a href="https://github.com/rajrounak21/Lovable-ai-clone" 
-               target="_blank" 
-               class="project-link">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-    </div>
+                    <div class="project-header">
+                        <h3>AI Automation Code Writer (Lovable Clone)</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/rajrounak21/Lovable-ai-clone" target="_blank"
+                                class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
 
-    <p class="project-description">
-        An autonomous AI-powered development platform that plans, designs, codes,
-        reviews, and previews full-stack web applications from natural language prompts.
-        Inspired by Lovable.dev, it enforces premium UI standards including Tailwind CSS,
-        dark mode, and glassmorphism by default.
-    </p>
+                    <p class="project-description">
+                        An autonomous AI-powered development platform that plans, designs, codes,
+                        reviews, and previews full-stack web applications from natural language prompts.
+                        Inspired by Lovable.dev, it enforces premium UI standards including Tailwind CSS,
+                        dark mode, and glassmorphism by default.
+                    </p>
 
-    <div class="project-tech">
-        <span class="tech-tag">Multi-Agent AI</span>
-        <span class="tech-tag">Python(os module)</span>
-        <span class="tech-tag">Langgraph</span>
-        <span class="tech-tag">Openai & Groq</span>
-        <span class="tech-tag">FastAPI</span>
-        <span class="tech-tag">Tailwind CSS</span>
-        <span class="tech-tag">LLMs</span>
-        <span class="tech-tag">Autonomous Systems</span>
-    </div>
-</div>
-<div class="project-card">
-    <div class="project-header">
-        <h3>Cerina Protocol Foundry</h3>
-        <div class="project-links">
-            <a href="https://github.com/rajrounak21/Cerina-Foundry"
-               target="_blank"
-               class="project-link">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Multi-Agent AI</span>
+                        <span class="tech-tag">Python(os module)</span>
+                        <span class="tech-tag">Langgraph</span>
+                        <span class="tech-tag">Openai & Groq</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Autonomous Systems</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Cerina Protocol Foundry</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/rajrounak21/Cerina-Foundry" target="_blank"
+                                class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
 
-    <p class="project-description">
-        An autonomous multi-agent clinical AI system for generating safe, empathetic
-        Cognitive Behavioral Therapy (CBT) exercises. Built using LangGraph with
-        PostgreSQL persistence and Model Context Protocol (MCP) integration,
-        featuring human-in-the-loop approval and real-time agent streaming.
-    </p>
+                    <p class="project-description">
+                        An autonomous multi-agent clinical AI system for generating safe, empathetic
+                        Cognitive Behavioral Therapy (CBT) exercises. Built using LangGraph with
+                        PostgreSQL persistence and Model Context Protocol (MCP) integration,
+                        featuring human-in-the-loop approval and real-time agent streaming.
+                    </p>
 
-    <div class="project-tech">
-        <span class="tech-tag">Multi-Agent AI</span>
-        <span class="tech-tag">LangGraph</span>
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">PostgreSQL</span>
-        <span class="tech-tag">MCP</span>
-        <span class="tech-tag">CBT AI</span>
-    </div>
-</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Multi-Agent AI</span>
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MCP</span>
+                        <span class="tech-tag">CBT AI</span>
+                    </div>
+                </div>
 
 
                 <div class="project-card">
@@ -1287,8 +1379,8 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        Developed a full-stack AI chatbot platform powered by Google Gemini Flash API. 
-                        Integrated secure user authentication and MySQL-backed chat history. 
+                        Developed a full-stack AI chatbot platform powered by Google Gemini Flash API.
+                        Integrated secure user authentication and MySQL-backed chat history.
                         Designed a responsive Bootstrap UI for smooth interaction.
                     </p>
                     <div class="project-tech">
@@ -1303,14 +1395,15 @@
                     <div class="project-header">
                         <h3>Smart-Finance-AI</h3>
                         <div class="project-links">
-                            <a href="https://github.com/rajrounak21/Smart-Finance-AI" target="_blank" class="project-link">
+                            <a href="https://github.com/rajrounak21/Smart-Finance-AI" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        AI-powered financial analysis tool with real-time stock insights. 
-                        Integrated OPENAI API, YFinance, DuckDuckGo Search Built-in tools via Agno Framework. 
+                        AI-powered financial analysis tool with real-time stock insights.
+                        Integrated OPENAI API, YFinance, DuckDuckGo Search Built-in tools via Agno Framework.
                         Built using Streamlit with automated news summarization & AI-driven recommendations.
                     </p>
                     <div class="project-tech">
@@ -1330,8 +1423,8 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        CLI-based AI assistant leveraging Model Context Protocol (MCP) for context-aware interactions. 
-                        Integrates Groq LLM (Qwen 32B), headless web browsing (Playwright), DuckDuckGo search, 
+                        CLI-based AI assistant leveraging Model Context Protocol (MCP) for context-aware interactions.
+                        Integrates Groq LLM (Qwen 32B), headless web browsing (Playwright), DuckDuckGo search,
                         and live crypto & Airbnb data access.
                     </p>
                     <div class="project-tech">
@@ -1346,14 +1439,15 @@
                     <div class="project-header">
                         <h3>Movie Recommendation App</h3>
                         <div class="project-links">
-                            <a href="https://github.com/rajrounak21/movie-recommendation-app" target="_blank" class="project-link">
+                            <a href="https://github.com/rajrounak21/movie-recommendation-app" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        Python-based application that recommends movies using cosine similarity on a curated dataset. 
-                        Built with Streamlit, Pandas, and Scikit-learn, offering a user-friendly interface 
+                        Python-based application that recommends movies using cosine similarity on a curated dataset.
+                        Built with Streamlit, Pandas, and Scikit-learn, offering a user-friendly interface
                         for personalized movie suggestions.
                     </p>
                     <div class="project-tech">
@@ -1363,7 +1457,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- View All Work Section -->
             <div class="view-all-work">
                 <div class="github-showcase">
@@ -1397,8 +1491,8 @@
                         <h3>Traffic Sign Data Annotation Intern</h3>
                         <h4>IIT Indore</h4>
                         <p>
-                            Annotated Indian road traffic sign images to create a structured dataset. 
-                            Ensured accuracy, consistency, and quality in data labeling. 
+                            Annotated Indian road traffic sign images to create a structured dataset.
+                            Ensured accuracy, consistency, and quality in data labeling.
                             Worked under the guidance of an IIT Indore professor.
                         </p>
                     </div>
@@ -1410,8 +1504,8 @@
                         <h3>Machine Learning with Python Intern</h3>
                         <h4>Vaishnav Technologies</h4>
                         <p>
-                            Applied ML algorithms & data analysis techniques in real-world projects. 
-                            Worked with Pandas, NumPy, scikit-learn. 
+                            Applied ML algorithms & data analysis techniques in real-world projects.
+                            Worked with Pandas, NumPy, scikit-learn.
                             Built practical ML models & pipelines during internship.
                         </p>
                     </div>
@@ -1498,13 +1592,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Rounak Raj. All rights reserved.</p>
+            <p>&copy; 2026 Rounak Raj. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // DOM Content Loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize all functions
             initializeNavigation();
             initializeScrollAnimations();
@@ -1524,9 +1618,10 @@
             const navbar = document.getElementById('navbar');
 
             // Mobile menu toggle
-            hamburger.addEventListener('click', function() {
+            hamburger.addEventListener('click', function () {
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
             });
 
             // Close mobile menu when clicking on a link
@@ -1534,11 +1629,12 @@
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
                 });
             });
 
             // Navbar scroll effect
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 if (window.scrollY > 50) {
                     navbar.style.background = 'rgba(255, 255, 255, 0.98)';
                     navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
@@ -1550,11 +1646,11 @@
 
             // Smooth scrolling for navigation links
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
-                    
+
                     if (targetSection) {
                         const offsetTop = targetSection.offsetTop - 70;
                         window.scrollTo({
@@ -1572,7 +1668,7 @@
         function updateActiveNavLink() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
-            
+
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -1592,8 +1688,8 @@
 
         // Scroll animations
         function initializeScrollAnimations() {
-            const animatedElements = document.querySelectorAll('.skill-category, .project-card, .timeline-item, .education-card, .stat-item');
-            
+            const animatedElements = document.querySelectorAll('.skill-category, .project-card, .education-card, .stat-item');
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1619,9 +1715,9 @@
             const heroTitle = document.querySelector('.hero-title');
             const text = "Hello, I'm ";
             const highlightedName = "Rounak Raj";
-            
+
             heroTitle.innerHTML = '';
-            
+
             let i = 0;
             const typeWriter = () => {
                 if (i < text.length) {
@@ -1633,14 +1729,14 @@
                     heroTitle.innerHTML += `<span class="highlight">${highlightedName}</span>`;
                 }
             };
-            
+
             setTimeout(typeWriter, 500);
         }
 
         // Animated counters for stats
         function initializeCounters() {
             const counters = document.querySelectorAll('.stat-item h3');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1659,21 +1755,21 @@
             const target = parseFloat(element.innerText);
             const duration = 2000;
             const start = performance.now();
-            
+
             function updateCounter(currentTime) {
                 const elapsed = currentTime - start;
                 const progress = Math.min(elapsed / duration, 1);
-                
+
                 const current = Math.floor(progress * target * 100) / 100;
                 element.innerText = current.toFixed(2);
-                
+
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
                 } else {
                     element.innerText = target.toString();
                 }
             }
-            
+
             requestAnimationFrame(updateCounter);
         }
 
@@ -1681,15 +1777,15 @@
         function initializeParallaxEffect() {
             const heroSection = document.querySelector('.hero');
             const profileImg = document.querySelector('.profile-img');
-            
+
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
                 const rate = scrolled * -0.5;
-                
+
                 if (heroSection && scrolled < heroSection.offsetHeight) {
                     heroSection.style.transform = `translateY(${rate}px)`;
                 }
-                
+
                 if (profileImg && scrolled < 500) {
                     profileImg.style.transform = `translateY(${scrolled * 0.3}px) scale(${1 - scrolled * 0.0005})`;
                 }
@@ -1699,24 +1795,24 @@
         // Skills animation
         function initializeSkillsAnimation() {
             const skillTags = document.querySelectorAll('.skill-tag');
-            
+
             skillTags.forEach((tag, index) => {
-                tag.addEventListener('mouseenter', function() {
+                tag.addEventListener('mouseenter', function () {
                     this.style.transform = 'scale(1.1) rotate(5deg)';
                     this.style.boxShadow = '0 10px 20px rgba(102, 126, 234, 0.3)';
                 });
-                
-                tag.addEventListener('mouseleave', function() {
+
+                tag.addEventListener('mouseleave', function () {
                     this.style.transform = 'scale(1) rotate(0deg)';
                     this.style.boxShadow = 'none';
                 });
-                
+
                 // Stagger animation on load
                 setTimeout(() => {
                     tag.style.opacity = '1';
                     tag.style.transform = 'translateY(0)';
                 }, index * 100);
-                
+
                 tag.style.opacity = '0';
                 tag.style.transform = 'translateY(20px)';
                 tag.style.transition = 'all 0.3s ease';
@@ -1727,20 +1823,20 @@
         function initializeContactForm() {
             const contactItems = document.querySelectorAll('.contact-item');
             const socialLinks = document.querySelectorAll('.social-link');
-            
+
             contactItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
+                item.addEventListener('mouseenter', function () {
                     this.style.transform = 'translateX(10px)';
                     this.style.transition = 'transform 0.3s ease';
                 });
-                
-                item.addEventListener('mouseleave', function() {
+
+                item.addEventListener('mouseleave', function () {
                     this.style.transform = 'translateX(0)';
                 });
             });
-            
+
             socialLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     // Add click animation
                     this.style.transform = 'scale(0.95)';
                     setTimeout(() => {
@@ -1757,7 +1853,7 @@
             loadingDiv.className = 'loading';
             loadingDiv.innerHTML = '<div class="spinner"></div>';
             document.body.appendChild(loadingDiv);
-            
+
             // Hide loading after page loads
             window.addEventListener('load', () => {
                 setTimeout(() => {
@@ -1770,16 +1866,16 @@
         }
 
         // Project card interactions
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const projectCards = document.querySelectorAll('.project-card');
-            
+
             projectCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
+                card.addEventListener('mouseenter', function () {
                     this.style.transform = 'translateY(-15px) rotateX(5deg)';
                     this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.2)';
                 });
-                
-                card.addEventListener('mouseleave', function() {
+
+                card.addEventListener('mouseleave', function () {
                     this.style.transform = 'translateY(0) rotateX(0deg)';
                     this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
                 });
@@ -1789,20 +1885,28 @@
         // Timeline animation
         function initializeTimelineAnimation() {
             const timelineItems = document.querySelectorAll('.timeline-item');
-            
+            const isMobile = window.innerWidth <= 768;
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateX(0)';
+                        entry.target.style.transform = 'translate(0, 0)';
                     }
                 });
-            }, { threshold: 0.5 });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
 
             timelineItems.forEach((item, index) => {
                 item.style.opacity = '0';
-                item.style.transform = index % 2 === 0 ? 'translateX(-50px)' : 'translateX(50px)';
-                item.style.transition = 'all 0.6s ease';
+                if (isMobile) {
+                    item.style.transform = 'translateY(30px)';
+                } else {
+                    item.style.transform = index % 2 === 0 ? 'translateX(-50px)' : 'translateX(50px)';
+                }
+                item.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
                 observer.observe(item);
             });
         }
@@ -1822,7 +1926,7 @@
                 z-index: 0;
                 pointer-events: none;
             `;
-            
+
             // Create floating particles
             for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
@@ -1835,12 +1939,12 @@
                     animation: float ${5 + Math.random() * 10}s ease-in-out infinite;
                     animation-delay: ${Math.random() * 5}s;
                 `;
-                
+
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 particlesContainer.appendChild(particle);
             }
-            
+
             hero.style.position = 'relative';
             hero.appendChild(particlesContainer);
         }
@@ -1850,12 +1954,12 @@
         setTimeout(initializeTimelineAnimation, 500);
 
         // Add smooth reveal animations for sections
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
                 const sectionVisible = 150;
-                
+
                 if (sectionTop < window.innerHeight - sectionVisible) {
                     section.classList.add('animate-on-scroll', 'in-view');
                 }
@@ -1883,4 +1987,5 @@
         window.addEventListener('scroll', throttledScroll);
     </script>
 </body>
+
 </html>
