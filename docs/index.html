@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rounak Raj - AI/ML Engineer Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <style>
         /* Reset and base styles */
@@ -488,14 +489,16 @@
             font-weight: 500;
         }
 
-        /* View All Work Section */
+        /* View All Work Section - FIX: prevent GitHub icon/box collapse */
         .view-all-work {
             margin-top: 4rem;
-            padding: 3rem 0;
+            padding: 2.5rem 2rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 20px;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .view-all-work::before {
@@ -516,6 +519,9 @@
             gap: 2rem;
             position: relative;
             z-index: 1;
+            flex-wrap: wrap;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .github-content {
@@ -523,11 +529,16 @@
             align-items: center;
             gap: 1.5rem;
             color: white;
+            flex: 1 1 280px;
+            min-width: 0;
         }
 
         .github-icon {
             width: 80px;
             height: 80px;
+            min-width: 80px;
+            min-height: 80px;
+            flex-shrink: 0;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
@@ -541,6 +552,11 @@
             color: white;
         }
 
+        .github-text {
+            flex: 1;
+            min-width: 0;
+        }
+
         .github-text h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
@@ -551,11 +567,13 @@
             font-size: 1.1rem;
             opacity: 0.9;
             margin: 0;
+            line-height: 1.4;
         }
 
         .github-btn {
-            display: flex;
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.8rem;
             padding: 1rem 2rem;
             background: rgba(255, 255, 255, 0.15);
@@ -567,6 +585,10 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+            white-space: nowrap;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .github-btn:hover {
@@ -935,7 +957,11 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Mobile responsive for GitHub showcase */
+            /* Mobile responsive for GitHub showcase - FIX */
+            .view-all-work {
+                padding: 2rem 1.25rem;
+            }
+
             .github-showcase {
                 flex-direction: column;
                 text-align: center;
@@ -946,6 +972,8 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
+                flex: 1 1 auto;
+                width: 100%;
             }
 
             .github-text h3 {
@@ -1262,14 +1290,15 @@
                     <div class="project-header">
                         <h3>Financial Sight - AI Market Intelligence</h3>
                         <div class="project-links">
-                            <a href="https://finance-sight.rounakraj.online/" target="_blank"
-                                class="project-link">
+                            <a href="https://finance-sight.rounakraj.online/" target="_blank" class="project-link">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        Next-Gen Trading Intelligence platform harnessing the power of real-time multi-source data analysis, intelligent chatbots, and predictive stock insights in one unified dashboard. Includes Risk-Free Paper Trading, Deep Analytics, and a Portfolio Strategy Engine.
+                        Next-Gen Trading Intelligence platform harnessing the power of real-time multi-source data
+                        analysis, intelligent chatbots, and predictive stock insights in one unified dashboard. Includes
+                        Risk-Free Paper Trading, Deep Analytics, and a Portfolio Strategy Engine.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">AI Agent</span>
@@ -1393,23 +1422,31 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>ThinkSync</h3>
+                        <h3>FamilyShield — AI-Powered Family Safety Platform</h3>
                         <div class="project-links">
-                            <a href="https://github.com/rajrounak21/ThinkSync" target="_blank" class="project-link">
+                            <a href="https://familyshield.rounakraj.online/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/rajrounak21/Family-Shield" target="_blank" class="project-link">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        Developed a full-stack AI chatbot platform powered by Google Gemini Flash API.
-                        Integrated secure user authentication and MySQL-backed chat history.
-                        Designed a responsive Bootstrap UI for smooth interaction.
+                        A layered AI-powered family safety platform that analyzes suspicious messages, images,
+                        and documents using vision, contextual reasoning, and response validation. Lets users
+                        paste a suspicious message or link, get an instant AI risk analysis in Hindi/Hinglish/English,
+                        share it with trusted family members in one tap, and record a family verdict before
+                        anyone clicks, pays, or shares an OTP. Includes real-time family chat, smart push
+                        notifications, and emergency guidance (1930 helpline, cybercrime reporting).
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Full-Stack</span>
-                        <span class="tech-tag">Google Gemini</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Groq AI</span>
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">AI Safety</span>
                     </div>
                 </div>
 
@@ -1507,7 +1544,7 @@
             <h2 class="section-title">Work Experience</h2>
 
             <div class="timeline">
-               <!-- Walsis eConnect -->
+                <!-- Walsis eConnect -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">Apr–Jul 2025</div>
@@ -1515,10 +1552,16 @@
                         <h3>Python Developer – Trainee</h3>
                         <h4>Walsis eConnect India Pvt. Ltd. | Patna, Bihar</h4>
                         <ul>
-                            <li>Built backend features for Expensepedia, an expense-management product, including a document-processing pipeline that ingests PDF/image receipts and invoices for automated data extraction using PaddleOCR.</li>
-                            <li>Designed the extraction pipeline to parse and validate key fields (vendor, amount, date, line items) from OCR output, applying validation rules to catch malformed, missing, or misread data before downstream processing.</li>
-                            <li>Generated structured Excel expense reports from validated data using openpyxl, automating a workflow that previously required manual entry.</li>
-                            <li>Collaborated with senior developers on code reviews, following production-grade Python development practices.</li>
+                            <li>Built backend features for Expensepedia, an expense-management product, including a
+                                document-processing pipeline that ingests PDF/image receipts and invoices for automated
+                                data extraction using PaddleOCR.</li>
+                            <li>Designed the extraction pipeline to parse and validate key fields (vendor, amount, date,
+                                line items) from OCR output, applying validation rules to catch malformed, missing, or
+                                misread data before downstream processing.</li>
+                            <li>Generated structured Excel expense reports from validated data using openpyxl,
+                                automating a workflow that previously required manual entry.</li>
+                            <li>Collaborated with senior developers on code reviews, following production-grade Python
+                                development practices.</li>
                         </ul>
                     </div>
                 </div>
