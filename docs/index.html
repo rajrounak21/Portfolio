@@ -2292,14 +2292,16 @@
             openBtn.href = filename;
             document.getElementById('pdfFallbackLink').href = filename;
 
-            // Use Google Docs viewer as inline preview (works in all browsers)
-            const fullUrl = window.location.origin + '/' + encodeURIComponent(filename);
-            iframe.src = 'https://docs.google.com/gviewer?embedded=true&url=' + encodeURIComponent(fullUrl);
+            // Directly load the PDF — Chrome/Edge render PDFs natively inside iframes
+            iframe.src = filename;
 
-            // Fallback: if iframe fails to load show fallback message
             iframe.style.display = 'block';
             fallback.style.display = 'none';
 
+            // Show fallback if browser can't render the PDF inline
+            iframe.onload = function() {
+                // No-op: modern browsers handle PDF rendering fine
+            };
             iframe.onerror = function() {
                 iframe.style.display = 'none';
                 fallback.style.display = 'flex';
