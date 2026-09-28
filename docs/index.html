@@ -603,6 +603,182 @@
         }
 
 
+        /* Certificate Preview Button */
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 8px 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .cert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .cert-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* PDF Preview Modal */
+        .pdf-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            animation: fadeInModal 0.25s ease;
+        }
+
+        .pdf-modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        .pdf-modal {
+            background: #1a1a2e;
+            border-radius: 16px;
+            width: 92vw;
+            max-width: 960px;
+            height: 88vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: slideUpModal 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUpModal {
+            from { transform: translateY(40px); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
+        }
+
+        .pdf-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-shrink: 0;
+        }
+
+        .pdf-modal-header h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .pdf-modal-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .pdf-open-tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .pdf-open-tab-btn:hover {
+            background: rgba(255,255,255,0.28);
+            color: white;
+        }
+
+        .pdf-close-btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .pdf-close-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .pdf-iframe-wrap {
+            flex: 1;
+            background: #2a2a3e;
+            position: relative;
+        }
+
+        .pdf-iframe-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .pdf-fallback {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #ccc;
+            gap: 1rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .pdf-fallback i {
+            font-size: 3rem;
+            color: #667eea;
+        }
+
+        .pdf-fallback p {
+            font-size: 1rem;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        .pdf-fallback a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
         /* Experience Section */
         .timeline {
             position: relative;
@@ -1161,8 +1337,7 @@
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">View Projects</a>
                         <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                        <a href="Rounak_Raj_Resume_AI&ML.pdf" target="_blank" class="btn btn-primary">View Resume
-                            (PDF)</a>
+                        <a href="Rounak_Raj_Resume_AI&ML.pdf" target="_blank" rel="noopener" class="btn btn-primary" onclick="previewPDF('Rounak_Raj_Resume_AI&ML.pdf', 'Resume'); return false;">View Resume (PDF)</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -1202,11 +1377,11 @@
                         <p>CGPA</p>
                     </div>
                     <div class="stat-item">
-                        <h3>9+</h3>
+                        <h3>8+</h3>
                         <p>Projects</p>
                     </div>
                     <div class="stat-item">
-                        <h3>3</h3>
+                        <h3>2</h3>
                         <p>Internships</p>
                     </div>
                 </div>
@@ -1274,7 +1449,6 @@
                         <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">Apache Kafka</span>
                         <span class="skill-tag">Redis</span>
-                         <span class="skill-tag">websocket</span>
 
                     </div>
                 </div>
@@ -1548,7 +1722,7 @@
                 <!-- Walsis eConnect -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Apr–Jul 2026</div>
+                    <div class="timeline-date">Apr–Jul 2025</div>
                     <div class="timeline-content">
                         <h3>Python Developer – Trainee</h3>
                         <h4>Walsis eConnect India Pvt. Ltd. | Patna, Bihar</h4>
@@ -1564,6 +1738,9 @@
                             <li>Collaborated with senior developers on code reviews, following production-grade Python
                                 development practices.</li>
                         </ul>
+                        <button class="cert-btn" onclick="previewPDF('INTERNSHIP COMPLETION CERTIFICATE-Mr. ROUNAK RAJ.pdf', 'Walsis Internship Certificate')">
+                            <i class="fas fa-certificate"></i> View Certificate
+                        </button>
                     </div>
                 </div>
 
@@ -1579,6 +1756,9 @@
                             Ensured accuracy, consistency, and quality in data labeling.
                             Worked under the guidance of an IIT Indore professor.
                         </p>
+                        <button class="cert-btn" onclick="previewPDF('raunak_raj_internship_certificate.pdf', 'IIT Indore Internship Certificate')">
+                            <i class="fas fa-certificate"></i> View Certificate
+                        </button>
                     </div>
                 </div>
 
@@ -1594,6 +1774,9 @@
                             Worked with Pandas, NumPy, and scikit-learn.
                             Built practical ML models and pipelines during the internship.
                         </p>
+                        <button class="cert-btn" onclick="previewPDF('internship_certificate_1.pdf', 'Vaishnav Technologies Certificate')">
+                            <i class="fas fa-certificate"></i> View Certificate
+                        </button>
                     </div>
                 </div>
 
@@ -1682,6 +1865,29 @@
             <p>&copy; 2026 Rounak Raj. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- PDF Preview Modal -->
+    <div class="pdf-modal-overlay" id="pdfModalOverlay" onclick="closePDFModal(event)">
+        <div class="pdf-modal" id="pdfModal">
+            <div class="pdf-modal-header">
+                <h3><i class="fas fa-file-pdf"></i> <span id="pdfModalTitle">Certificate</span></h3>
+                <div class="pdf-modal-actions">
+                    <a id="pdfOpenTabBtn" href="#" target="_blank" rel="noopener" class="pdf-open-tab-btn">
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                    </a>
+                    <button class="pdf-close-btn" onclick="closePDFModalDirect()" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <div class="pdf-iframe-wrap" id="pdfIframeWrap">
+                <iframe id="pdfIframe" src="" title="PDF Preview"></iframe>
+                <div class="pdf-fallback" id="pdfFallback">
+                    <i class="fas fa-file-pdf"></i>
+                    <p>Your browser could not display the PDF inline.<br>
+                    <a id="pdfFallbackLink" href="#" target="_blank" rel="noopener">Click here to open it in a new tab</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // DOM Content Loaded
@@ -2072,6 +2278,56 @@
         }, 100);
 
         window.addEventListener('scroll', throttledScroll);
+
+        // ── PDF Preview Modal ──────────────────────────────────────────────
+        function previewPDF(filename, title) {
+            const overlay  = document.getElementById('pdfModalOverlay');
+            const iframe   = document.getElementById('pdfIframe');
+            const titleEl  = document.getElementById('pdfModalTitle');
+            const openBtn  = document.getElementById('pdfOpenTabBtn');
+            const fallback = document.getElementById('pdfFallback');
+            const iframeWrap = document.getElementById('pdfIframeWrap');
+
+            titleEl.textContent = title;
+            openBtn.href = filename;
+            document.getElementById('pdfFallbackLink').href = filename;
+
+            // Use Google Docs viewer as inline preview (works in all browsers)
+            const fullUrl = window.location.origin + '/' + encodeURIComponent(filename);
+            iframe.src = 'https://docs.google.com/gviewer?embedded=true&url=' + encodeURIComponent(fullUrl);
+
+            // Fallback: if iframe fails to load show fallback message
+            iframe.style.display = 'block';
+            fallback.style.display = 'none';
+
+            iframe.onerror = function() {
+                iframe.style.display = 'none';
+                fallback.style.display = 'flex';
+            };
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePDFModal(event) {
+            // Only close when clicking the dark overlay, not the modal itself
+            if (event.target === document.getElementById('pdfModalOverlay')) {
+                closePDFModalDirect();
+            }
+        }
+
+        function closePDFModalDirect() {
+            const overlay = document.getElementById('pdfModalOverlay');
+            const iframe  = document.getElementById('pdfIframe');
+            overlay.classList.remove('active');
+            iframe.src = ''; // stop loading
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closePDFModalDirect();
+        });
     </script>
 </body>
 
